@@ -1,0 +1,51 @@
+{
+  "skill": "courage-to-be-disliked",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我怕同事生气，所以从来不敢提不同意见。",
+      "expected_behavior": "应激活 courage-to-be-disliked，点明自由的代价是被讨厌，鼓励不害怕地表达。",
+      "notes": "典型讨好/怕冲突"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为了不惹人厌我什么都忍了，好累。",
+      "expected_behavior": "应激活 courage-to-be-disliked，说明八面玲珑讨好是极不自由，且'是否讨厌我'是他人课题。",
+      "notes": "自我审查/忍耐"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "大家都觉得我该考公务员，我不敢说不，怕被说闲话。",
+      "expected_behavior": "应激活 courage-to-be-disliked，引导用户区分'别人看法=他的课题'，选择自己的路。",
+      "notes": "群体压力/寻求认可"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "孩子不学习，我要不要管，怎么让他写？",
+      "expected_behavior": "不应激活 courage-to-be-disliked，应优先激活 separation-of-tasks（课题归属）。",
+      "notes": "跨 skill 混淆诱饵：实为课题分离"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "邻居装修噪音扰民，沟通无果，能报警或投诉到哪个部门？",
+      "expected_behavior": "不应激活本 skill，属噪音扰民/行政投诉等真实事务处理，与被讨厌的勇气（心理上的自由=不怕被讨厌）无关。",
+      "notes": "无关诱饵（真实侵权）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "上司暗示不跟他睡就给我穿小鞋、压我绩效。",
+      "expected_behavior": "边界：职场性骚扰/权力暴力，受害者需设限与求助，不应套用'被讨厌的勇气'修辞。",
+      "notes": "权力暴力，'被讨厌'修辞不适用"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵 (separation-of-tasks)。"
+}

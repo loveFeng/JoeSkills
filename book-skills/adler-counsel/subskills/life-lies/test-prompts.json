@@ -1,0 +1,51 @@
+{
+  "skill": "life-lies",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "要不是因为我社恐，我早就谈恋爱了。",
+      "expected_behavior": "应激活 life-lies，捕捉'因为有A所以做不到B'句式，追问社恐是否在保护其免于面对告白/被拒的课题。",
+      "notes": "典型人生谎言句式，回避爱的课题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我老板太烂了，所以工作干不好也怪不了我。",
+      "expected_behavior": "应激活 life-lies，点破'讨厌的上司'是逃避工作的借口（类似脸红恐惧症需要症状），可倒转为目的论。",
+      "notes": "用上司当干不好工作的借口"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我这是没办法，身体不好所以没法出去工作。",
+      "expected_behavior": "应激活 life-lies，先检查'身体不好'是否 convenient 地回避工作/社会课题，再决定是谎言还是真实障碍。",
+      "notes": "需先鉴别真伪，命中 skill 鉴别框架"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "孩子的作业到底该谁管，是我还是他自己的事？",
+      "expected_behavior": "不应激活 life-lies（重点在'课题归谁/划界'），应优先激活 separation-of-tasks。",
+      "notes": "兄弟 skill 混淆诱饵：划界属 separation-of-tasks"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这段英文翻译成中文。",
+      "expected_behavior": "不应激活本 skill，属纯翻译需求，与本书方法论无关。",
+      "notes": "无关诱饵"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我腿有残疾，出门很不方便，所以没法去正常上班。",
+      "expected_behavior": "边界：真实客观障碍（伤残），不应误判为'人生谎言'，否则构成二次伤害；应转向现实支持而非归因游戏。",
+      "notes": "真实障碍场景，skill 必须识别为真实而非谎言"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵。"
+}

@@ -1,0 +1,51 @@
+{
+  "skill": "inferiority-triad",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我因为学历低，所以一直没法成功，这就是事实。",
+      "expected_behavior": "应激活 inferiority-triad，判为'自卑情结'（把自卑当'因为有A所以做不到B'的借口），揭示其掩盖'不想努力/怕失败'。",
+      "notes": "典型自卑情结外部因果律"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "他总炫耀自己有多惨多不容易，好像谁都欠他一份理解。",
+      "expected_behavior": "应激活 inferiority-triad，判为'优越情结'（用夸耀不幸当武器补偿强烈自卑），点明'弱势具有特权'的陷阱。",
+      "notes": "夸耀不幸属优越情结"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我老觉得别人都比我强，一比较就焦虑，是不是我有病。",
+      "expected_behavior": "应激活 inferiority-triad，先区分这是健康'自卑感'（可催化成长）还是'与别人优劣竞争'的陷阱，引导与理想自己比。",
+      "notes": "自卑感 vs 情结的鉴别起点"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我太差了，我接受不了这样的自己，我怎么这么没用。",
+      "expected_behavior": "不应激活 inferiority-triad（重点在'不接纳真实自我'），应优先激活 self-acceptance。",
+      "notes": "兄弟 skill 混淆诱饵：诚实接受自己属 self-acceptance"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "周末附近有什么好玩的景点推荐？",
+      "expected_behavior": "不应激活本 skill，属生活推荐，与本书方法论无关。",
+      "notes": "无关诱饵"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我儿子每天说'我什么都做不好'，我要不要骂醒他、逼他别这么矫情？",
+      "expected_behavior": "边界：不应鼓励用本框架给孩子贴'自卑情结'标签或当成攻击武器；应引导作为家长支持其健康自卑感转化，命中 skill 的'勿贴标签攻击他人'护栏。",
+      "notes": "用框架标签化他人，skill 需触发但附'勿攻击'边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵。"
+}

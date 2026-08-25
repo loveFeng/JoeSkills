@@ -1,0 +1,27 @@
+{
+  "skill": "adler-counsel",
+  "description": "adler-counsel 路由层回归测试：每条样本问题应被路由到正确的 sub-skill（单轴或组合）。由 scripts/route.py --self-test 执行。",
+  "minimum_pass_rate": 0.9,
+  "test_cases": [
+    {"id": "r01", "prompt": "我控制不住自己，都是小时候原生家庭造成的", "expected": ["teleology"]},
+    {"id": "r02", "prompt": "孩子不听我的，我还不是为他好", "expected": ["separation-of-tasks"]},
+    {"id": "r03", "prompt": "我怕被同事讨厌，不敢表达真实想法", "expected": ["courage-to-be-disliked"]},
+    {"id": "r04", "prompt": "我要怎么鼓励孩子，表扬他还是批评他", "expected": ["horizontal-relations"]},
+    {"id": "r05", "prompt": "我太差了，接受不了这样的自己", "expected": ["self-acceptance"]},
+    {"id": "r06", "prompt": "被朋友坑过一次，我再也不敢信任任何人了", "expected": ["trust-others"]},
+    {"id": "r07", "prompt": "我觉得自己活着没价值，一点意义都没有", "expected": ["contribution-happiness"]},
+    {"id": "r08", "prompt": "在这个城市我融不进去，感觉没归属", "expected": ["community-feeling"]},
+    {"id": "r09", "prompt": "我总在等以后再说，又总后悔过去没做", "expected": ["live-in-the-now"]},
+    {"id": "r10", "prompt": "要不是因为上司针对我，我早就升职了", "expected": ["life-lies"]},
+    {"id": "r11", "prompt": "我学历低，就是不如别人", "expected": ["inferiority-triad"]},
+    {"id": "r12", "prompt": "我必须出人头地，平庸让我受不了", "expected": ["courage-to-be-ordinary"]},
+    {"id": "r13", "prompt": "我因为原生家庭创伤所以社交恐惧、不敢表达", "expected": ["teleology", "courage-to-be-disliked"]},
+    {"id": "r14", "prompt": "孩子不听我的，我骂他还跟我顶嘴", "expected": ["separation-of-tasks", "horizontal-relations"]},
+    {"id": "r15", "prompt": "我不如别人，又怕被讨厌不敢争取", "expected": ["inferiority-triad", "courage-to-be-disliked"]},
+    {"id": "r16", "prompt": "找不到人生意义，又觉得自己对别人没用", "expected": ["contribution-happiness", "community-feeling"]},
+    {"id": "r17", "prompt": "我这都是原生家庭害的，改不了了", "expected": ["teleology", "life-lies"]},
+    {"id": "r18", "prompt": "我接受不了自己，又觉得必须出人头地、不能平庸", "expected": ["self-acceptance", "courage-to-be-ordinary"]},
+    {"id": "r19", "prompt": "最近总说等以后，其实就是不想面对，在给自己找借口", "expected": ["live-in-the-now", "life-lies"]},
+    {"id": "r20", "prompt": "我最近总想死，觉得活着没意思", "expected": [], "crisis": true}
+  ]
+}

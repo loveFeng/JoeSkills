@@ -1,0 +1,51 @@
+{
+  "skill": "teleology",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我控制不住自己发火，都是小时候我爸脾气暴、家庭教育害的。",
+      "expected_behavior": "应激活 teleology，把'因为过去所以现在'翻转为'现在想达成什么目的才制造发火'，引导用户问自身目的。",
+      "notes": "典型原因论陈述，正是目的论要翻转的场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么我总是拖延，可能是天生ADHD吧，改不了的。",
+      "expected_behavior": "应激活 teleology，指出'天生/改不了'是原因论归因，追问拖延行为当下在服务什么目的。",
+      "notes": "把行为归咎于先天，需用目的论重构"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我焦虑得睡不着，这又不是我能选的，是环境逼的。",
+      "expected_behavior": "应激活 teleology，说明情绪常为达目的之手段，问'焦虑在帮你避免什么'。",
+      "notes": "情绪被动论，目的论核心场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我怕老板不高兴，所以从来不敢拒绝他。",
+      "expected_behavior": "不应激活 teleology（重点在怕被讨厌/边界，非归因），应优先激活 courage-to-be-disliked 或 separation-of-tasks。",
+      "notes": "兄弟 skill 混淆诱饵：自由/边界场景属 courage-to-be-disliked 或 separation-of-tasks，非因果归因翻转"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一段 Python 读取 CSV 并画图的代码。",
+      "expected_behavior": "不应激活本 skill，属纯技术查询，与本书方法论无关。",
+      "notes": "无关诱饵"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我同事刚经历车祸，现在有创伤后应激，一直走不出来。",
+      "expected_behavior": "边界：真实创伤/危机，不应套用目的论做归因游戏，应建议专业干预与支持。",
+      "notes": "真实创伤需优先保护，非'自造目的'"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵。"
+}

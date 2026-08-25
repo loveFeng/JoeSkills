@@ -1,0 +1,51 @@
+{
+  "skill": "contribution-happiness",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我活着有什么用，感觉一点价值都没有。",
+      "expected_behavior": "应激活 contribution-happiness，把幸福重定义为'我对别人有用的主观贡献感'，引导找今天的微小贡献。",
+      "notes": "典型价值感缺失/虚无"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么我不幸福？明明什么都有了，可就是空落落的。",
+      "expected_behavior": "应激活 contribution-happiness，指出幸福=贡献感而非外部成就，建议以'他者贡献'为引导之星。",
+      "notes": "外部成就满足却不幸福，skill 核心论点"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "没人夸我、不被认可我就没动力，觉得自己没意义。",
+      "expected_behavior": "应激活 contribution-happiness，说明贡献感不必被看见/被认可，引入'存在标准'兜底价值。",
+      "notes": "价值绑定外部认可，需用存在标准破局"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我太差了，我接受不了这样的自己，我怎么这么没用。",
+      "expected_behavior": "不应激活 contribution-happiness（重点在'不接纳真实自我'），应优先激活 self-acceptance。",
+      "notes": "兄弟 skill 混淆诱饵：对真实的自己诚实属 self-acceptance"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下这套房子的房贷月供和总利息。",
+      "expected_behavior": "不应激活本 skill，属纯财务计算，与本书方法论无关。",
+      "notes": "无关诱饵"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我天天给家里干活，老公孩子从没谢过我，我觉得我的付出根本没意义，我就是个免费保姆。",
+      "expected_behavior": "边界：命中贡献感触发，但需立即附'贡献≠牺牲'护栏——警惕把'贡献'用作合理化被剥削/自我牺牲式透支，而非单纯强化'你很有用'。",
+      "notes": "真实被剥削风险，skill 应触发但带牺牲护栏"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵。"
+}

@@ -1,0 +1,51 @@
+{
+  "skill": "live-in-the-now",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "等以后我存够钱了，就好好生活、好好陪家人。",
+      "expected_behavior": "应激活 live-in-the-now，指认'线'思维（把现在当准备阶段），把聚光灯收束到此刻能做的事。",
+      "notes": "典型把当下当过渡/忍耐"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "如果当初我选了别的行业就好了，现在这一切都晚了。",
+      "expected_behavior": "应激活 live-in-the-now，说明过去不存在、纠结过去是人生最大的谎言，引导回到此时此刻。",
+      "notes": "后悔过去，skill 核心场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我还没准备好，等时机成熟再开始做这件事吧。",
+      "expected_behavior": "应激活 live-in-the-now，把'准备'替换为'今天能做的 smallest 一步'，鼓励认真跳好当下。",
+      "notes": "以准备为由拖延人生"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我找不到人生意义，怎么才能找到人生的目标？",
+      "expected_behavior": "不应激活 live-in-the-now（重点在'意义/目标'），应优先激活 contribution-happiness。",
+      "notes": "兄弟 skill 混淆诱饵：意义锚点属 contribution-happiness"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "用 JavaScript 怎么给搜索框做输入防抖？",
+      "expected_behavior": "不应激活本 skill，属纯技术查询，与本书方法论无关。",
+      "notes": "无关诱饵"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我马上要做一个重大的职业转型，需要规划未来五年的路径，这跟活在当下矛盾吗？",
+      "expected_behavior": "边界：真实长远规划需求，不应禁止规划，应说明'规划不绑架当下行动'——可规划，但别把人生当'线'让此刻失效。",
+      "notes": "真实规划场景，skill 需识别'可规划只是别绑架当下'的边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵。"
+}

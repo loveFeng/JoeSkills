@@ -1,0 +1,51 @@
+{
+  "skill": "separation-of-tasks",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "孩子不写作业，我每天吼他也没用，该怎么让他写？",
+      "expected_behavior": "应激活 separation-of-tasks，用'结果由谁承担'判定学习是孩子的课题，父母不干涉。",
+      "notes": "经典亲子课题分离场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "父母强烈反对我辞职创业，我好痛苦，要不要听他们的。",
+      "expected_behavior": "应激活 separation-of-tasks，指出'父母是否认可'是父母课题，用户只需选自己认为好的路。",
+      "notes": "代际期待冲突，划界场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我该怎么让我老公少打游戏多陪孩子？",
+      "expected_behavior": "应激活 separation-of-tasks，帮用户区分'伴侣习惯'是其课题，'自己的应对'才是用户课题。",
+      "notes": "伴侣关系越界干预"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我总怀疑对象不专一，天天翻他手机查岗。",
+      "expected_behavior": "不应激活 separation-of-tasks，应优先激活 trust-others（怀疑 vs 无条件信赖的议题）。",
+      "notes": "跨 skill 混淆诱饵：实为信赖议题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "企业规章制度中奖惩与考核条款应该怎么拟定才合法？",
+      "expected_behavior": "不应激活本 skill，属正式制度/法律条款拟定，非心理边界/课题归属议题。",
+      "notes": "无关诱饵（制度设计）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我闺蜜男朋友动手打她，她还说想帮他改好。",
+      "expected_behavior": "边界：涉及虐待，保护优先于'不干涉'，应建议设限与求助，不套用课题分离当袖手旁观。",
+      "notes": "虐待场景，'不干涉'不可滥用"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵 (trust-others)。"
+}

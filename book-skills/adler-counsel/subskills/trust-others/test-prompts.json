@@ -1,0 +1,51 @@
+{
+  "skill": "trust-others",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我不敢信他，上次被坑了，所以现在谁都不敢信。",
+      "expected_behavior": "应激活 trust-others，区分'信用'（带条件）与'信赖'（无条件），引导用户把'是否背叛'交还对方课题。",
+      "notes": "典型怕被背叛、过度设防"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "他靠谱吗？我到底该怎么建立对他的信任？",
+      "expected_behavior": "应激活 trust-others，说明'信赖'是无条件决定自己是否信，而非等对方先证明可靠（信用）。",
+      "notes": "建立信任的疑问，核心在信赖 vs 信用"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我总是怀疑伴侣是不是在外面有人，天天查他手机。",
+      "expected_behavior": "应激活 trust-others，点明'怀疑会催生对方的不信任'，问'你决定信赖还是不信赖'，把背叛交还对方课题。",
+      "notes": "关系里用怀疑眼光找过错，skill 核心场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "同事把我负责的项目搞砸了，但那是他的事，我不该替他收拾烂摊子。",
+      "expected_behavior": "不应激活 trust-others（重点在'谁的课题/划界'），应优先激活 separation-of-tasks。",
+      "notes": "兄弟 skill 混淆诱饵：划界/课题归属属 separation-of-tasks"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "用 Python 怎么读取一个 JSON 文件并解析成字典？",
+      "expected_behavior": "不应激活本 skill，属纯技术查询，与本书方法论无关。",
+      "notes": "无关诱饵"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我朋友最近总找我借钱，我怀疑他在骗我钱，但我又怕伤感情不敢问。",
+      "expected_behavior": "边界：涉及真实财产安全风险，不应盲目'无条件信赖'，应先设限核实、保护自身，命中 skill 的 B 段安全风险护栏。",
+      "notes": "真实风险场景，skill 需触发但立即附安全边界而非要求盲信"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵。"
+}

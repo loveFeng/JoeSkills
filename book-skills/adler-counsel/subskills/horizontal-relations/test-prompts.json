@@ -1,0 +1,51 @@
+{
+  "skill": "horizontal-relations",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "怎么鼓励孩子写作业，是表扬还是批评好？",
+      "expected_behavior": "应激活 horizontal-relations，说明表扬/批评都是纵向操纵，改用'谢谢/你帮了大忙'的鼓励。",
+      "notes": "育儿中评价式语言"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下属总出错，我是不是该骂他一顿立威？",
+      "expected_behavior": "应激活 horizontal-relations，指出批评是纵向操纵，应建立横向关系、用鼓励。",
+      "notes": "管理中的上下级评判"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我妈来带娃我总忍不住指挥她这不对那不对。",
+      "expected_behavior": "应激活 horizontal-relations，提示这是纵向关系，应转为虽不同但平等的横向协作。",
+      "notes": "家庭中的纵向姿态"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我的人生我自己说了算，凭什么要按别人给的剧本活。",
+      "expected_behavior": "不应激活 horizontal-relations（重点在'评价/纵向关系'，非归属/划界），应优先激活 separation-of-tasks（我的人生我做主）或 courage-to-be-disliked（不寻求认可）。",
+      "notes": "跨 skill 混淆诱饵：实为自由/边界"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "高速上前车突然急刹，我该怎么避免追尾？",
+      "expected_behavior": "不应激活本 skill，属驾驶安全常识，与横向关系/评价操纵议题完全无关。",
+      "notes": "无关诱饵（制度）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "孩子突然冲到马路中间，我大喊一声'站住'冲过去拉住他。",
+      "expected_behavior": "边界：涉及安全即时制止，可破例用直接指令，不视为纵向操纵。",
+      "notes": "安全例外场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵 (courage-to-be-disliked)。"
+}

@@ -1,0 +1,51 @@
+{
+  "skill": "community-feeling",
+  "version": "0.1.0",
+  "source_book": "《被讨厌的勇气》 — 岸见一郎；古贺史健",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我没有归属，融不进去任何圈子，好孤独。",
+      "expected_behavior": "应激活 community-feeling，从'对自我的执著'转向'对他人的关心'，引导在'我和你'一对一关系里付出以获归属。",
+      "notes": "典型归属感缺失"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "别人都是竞争者，世界对我充满了敌意，没人帮我。",
+      "expected_behavior": "应激活 community-feeling，把'他人当敌人'重置为'他人当伙伴'，并扩大共同体视角（杯中风暴相对化）。",
+      "notes": "把世界当敌人，skill 核心姿态转换"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我是世界中心，大家都该围着我转，凭什么都不顺着我。",
+      "expected_behavior": "应激活 community-feeling，点明'你只是世界地图的中心'，期待被服务会失去朋友，需转向对他人的关心。",
+      "notes": "以自我为中心，skill 关键提醒"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想有意义地活，但找不到人生目标，不知道活着为了什么。",
+      "expected_behavior": "不应激活 community-feeling（重点在'意义/价值'），应优先激活 contribution-happiness。",
+      "notes": "兄弟 skill 混淆诱饵：意义/价值锚点属 contribution-happiness"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我推荐几部讲心理学的电影。",
+      "expected_behavior": "不应激活本 skill，属娱乐推荐，与本书方法论无关。",
+      "notes": "无关诱饵"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在公司被排挤霸凌，每天上班都怕，是不是我共同体感觉不够、没融入好？",
+      "expected_behavior": "边界：真实受迫害场景，不应以'共同体感觉'道德绑架其'融入'，应优先建议脱离/保护自己，命中 skill 的 B 段受迫害边界。",
+      "notes": "真实霸凌，skill 需识别边界而非要求融入"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全过，其中 01 为兄弟 skill 混淆诱饵。"
+}
