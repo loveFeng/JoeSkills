@@ -1,6 +1,6 @@
 # epub-to-skills — EPUB → executable skills pipeline
 
-An end-to-end pipeline that turns "take an EPUB → produce a set of installable, stress-tested agent skills" into a **deterministic, reusable** flow. On top of the [cangjie-skill](https://github.com/) distillation engine, it adds two engineering capabilities — reliable EPUB text extraction and automated cross-skill confusion stress testing — and bakes in fixes for pitfalls around Chinese book titles, Windows paths, and sandbox isolation.
+An end-to-end pipeline that turns "take an EPUB → produce a set of installable, stress-tested agent skills" into a **deterministic, reusable** flow. On top of the [cangjie-skill](https://github.com/kangarooking/cangjie-skill) distillation engine, it adds two engineering capabilities — reliable EPUB text extraction and automated cross-skill confusion stress testing — and bakes in fixes for pitfalls around Chinese book titles, Windows paths, and sandbox isolation.
 
 > This skill does not re-implement cangjie-skill's distillation methodology; it only fills the two engineering gaps and hardens the lessons learned.
 
@@ -41,7 +41,7 @@ Outputs `./books/bei-taoyan-de-yongqi/_book_text.txt` (chapters separated by `==
 
 ### Stage B — distillation core
 
-Hand `_book_text.txt` to cangjie-skill and run its RIA-TV++ stages 0–3 (book understanding → extractors → triple verification → RIA++ construction → linking). This skill does not cover that part.
+Hand `_book_text.txt` to [cangjie-skill](https://github.com/kangarooking/cangjie-skill) and run its RIA-TV++ stages 0–3 (book understanding → extractors → triple verification → RIA++ construction → linking). This skill does not cover that part.
 
 ### Stage C — automated stress test
 
@@ -85,6 +85,8 @@ The assembler will:
 ## Dependencies
 
 Python 3 standard library only.
+
+> **Upstream distillation engine**: [cangjie-skill](https://github.com/kangarooking/cangjie-skill) must be installed separately — the stage B distillation core (book understanding / extraction / verification / construction / linking) is done by it; this skill only covers the engineering capabilities before and after it.
 
 ## License
 

@@ -21,8 +21,8 @@ All skills in this repo have been stripped of any platform-specific content and 
 ### 2. `epub-to-skills` — EPUB 蒸馏为 Skill 流水线 / EPUB-to-Skills Pipeline
 
 - 把一本 EPUB 电子书蒸馏成一组可执行 agent skill 的一站式流水线封装。
-- 在通用蒸馏引擎之上补齐「可靠的 EPUB 文本提取」与「自动化跨 skill 盲测路由」两块工程能力，并固化中文书名 / 非 ASCII 路径的工程坑规避方法。
-- One-stop pipeline that distills an EPUB into a set of executable agent skills, adding reliable text extraction and automated blind-routing on top of a generic distiller.
+- 在通用蒸馏引擎 [cangjie-skill](https://github.com/kangarooking/cangjie-skill) 之上补齐「可靠的 EPUB 文本提取」与「自动化跨 skill 盲测路由」两块工程能力，并固化中文书名 / 非 ASCII 路径的工程坑规避方法。
+- One-stop pipeline that distills an EPUB into a set of executable agent skills, adding reliable text extraction and automated blind-routing on top of the [cangjie-skill](https://github.com/kangarooking/cangjie-skill) distiller.
 
 📄 文档 / Docs: [中文 README](epub-to-skills/README.md) · [English README](epub-to-skills/README_EN.md)
 

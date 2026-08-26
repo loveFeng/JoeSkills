@@ -1,6 +1,6 @@
 # epub-to-skills —— 把 EPUB 蒸馏成可执行 skill 的流水线
 
-把「拿到一本 EPUB → 产出一组可安装、经压力测试验证的 agent skill」做成**确定性、可复用**的流程。在 [cangjie-skill](https://github.com/) 蒸馏引擎之上，补齐两块工程能力：「可靠的 EPUB 文本提取」与「自动化跨 skill 混淆压力测试」，并固化中文书名 / Windows 路径 / 沙箱隔离等坑位的规避方法。
+把「拿到一本 EPUB → 产出一组可安装、经压力测试验证的 agent skill」做成**确定性、可复用**的流程。在 [cangjie-skill](https://github.com/kangarooking/cangjie-skill) 蒸馏引擎之上，补齐两块工程能力：「可靠的 EPUB 文本提取」与「自动化跨 skill 混淆压力测试」，并固化中文书名 / Windows 路径 / 沙箱隔离等坑位的规避方法。
 
 > 本 skill 不重复 cangjie-skill 的蒸馏方法论，只做它工程层面缺的两块，并把踩过的坑固化下来。
 
@@ -41,7 +41,7 @@ python scripts/extract_epub.py \
 
 ### 阶段 B — 蒸馏核心
 
-把 `_book_text.txt` 交给 cangjie-skill，按其 RIA-TV++ 跑阶段 0–3（整书理解 → 提取器 → 三重验证 → RIA++ 构造 → 链接）。本 skill 不覆盖这部分。
+把 `_book_text.txt` 交给 [cangjie-skill](https://github.com/kangarooking/cangjie-skill)，按其 RIA-TV++ 跑阶段 0–3（整书理解 → 提取器 → 三重验证 → RIA++ 构造 → 链接）。本 skill 不覆盖这部分。
 
 ### 阶段 C — 自动化压力测试
 
@@ -85,6 +85,8 @@ python scripts/make_book_skill.py \
 ## 依赖
 
 仅 Python 3 标准库。
+
+> **上游蒸馏引擎**：[cangjie-skill](https://github.com/kangarooking/cangjie-skill) 需另行安装——阶段 B 的蒸馏核心（整书理解 / 提取 / 验证 / 构造 / 链接）由它完成，本 skill 只负责其前后两端的工程能力。
 
 ## 许可证
 
