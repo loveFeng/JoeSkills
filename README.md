@@ -26,6 +26,13 @@ All skills in this repo have been stripped of any platform-specific content and 
 
 📄 文档 / Docs: [中文 README](epub-to-skills/README.md) · [English README](epub-to-skills/README_EN.md)
 
+### 3. `guwen-rewriter` — 古风改写匠 / Classical-style Rewriter
+
+- 将普通白话句子改写成古风/文言意境的优美短句，同时严格保留原意；绝不为了"古"而歪曲本意。内置五步转换流水线（解意 → 定调 → 选象 → 炼句 → 校验）与意象 / 句式 / 意境 / 范例资源库（`references/imagery.md`）。
+- Rewrite plain modern Chinese sentences into elegant classical-style phrases while strictly preserving meaning. Ships a 5-step pipeline (decode → tone → imagery → phrase → verify) plus an imagery / template / mood / example library.
+
+📄 文档 / Docs: [SKILL.md](guwen-rewriter/SKILL.md)
+
 ---
 
 ## 安装 / Installation
@@ -36,6 +43,7 @@ All skills in this repo have been stripped of any platform-specific content and 
 # 例：复制到用户级 skills 目录
 cp -r book-skills/adler-counsel ~/.skills/
 cp -r epub-to-skills            ~/.skills/
+cp -r guwen-rewriter            ~/.skills/
 ```
 
 Install the skill directories into your agent's actual skills root (generic placeholder: `~/.skills`):
@@ -43,6 +51,7 @@ Install the skill directories into your agent's actual skills root (generic plac
 ```bash
 cp -r book-skills/adler-counsel ~/.skills/
 cp -r epub-to-skills            ~/.skills/
+cp -r guwen-rewriter            ~/.skills/
 ```
 
 > 脚本依赖仅 Python 3 标准库（无需 `pip install`）。
